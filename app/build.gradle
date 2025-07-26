@@ -1,13 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.socks.klog.sample"
-        minSdkVersion 8
-        targetSdkVersion 23
+        minSdkVersion 14
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
     }
@@ -25,13 +24,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:23.4.0'
-    compile 'com.loopj.android:android-async-http:1.4.9'
-    compile 'cz.msebera.android:httpclient:4.3.6'
-    compile 'com.github.zhaokaiqiang.klog:library:1.6.0'
-//    compile project(':library')
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.loopj.android:android-async-http:1.4.9'
+    implementation 'cz.msebera.android:httpclient:4.4.1.2'
+    implementation project(':library')
+//    implementation 'com.github.zhaokaiqiang.klog:library:1.6.0'
 }
